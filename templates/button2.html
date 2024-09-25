@@ -1,0 +1,43 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+		<body>
+			<div class="jumbotron">
+					 <div style="background-color:white;color:black;padding:10px;font-family:verdana;">
+
+				<p> please upload a zip file containing multiple Excel files (e.g. Project_01/Freestyle_outputs), or path pointing to a single Excel file (e.g. Project_01/Freestyle_outputs/Outputfile@IgM_site4.xlsx).</p>
+
+					<br>
+						<br>
+        <p> please mention yes in the text field if you want test the adducts option otherwise leave it empty</p>
+
+
+				<form method="POST" action="/" enctype="multipart/form-data">
+				<label for="lname">adduct option</label><br>
+         <input type="text" id="lname" name="name" value=""><br><br>
+				<input type="file" name="file" accept=".zip, .xlsx, .xls, .csv">
+				<br>
+
+				<input type="submit" value="Submit">
+
+				</form>
+
+			</div>
+	</div>
+  							{% if filename %}
+
+								<br>
+			     <div class="row">
+			         <div class="col-12 col-md-6">
+
+			             <a class="btn btn-success" href= "{{ url_for('download') }}"> Download the Results as Zip file</a>
+			         </div>
+			     </div>
+
+
+						 {% endif %}
+
+
+   </body>
+{% endblock %}
